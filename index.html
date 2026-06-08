@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家庭抽奖 - 今天谁做家务</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎉 家庭抽奖</h1>
+            <p class="subtitle">今天谁做家务</p>
+        </header>
+
+        <main>
+            <!-- 设置面板 -->
+            <section class="panel setup-panel">
+                <h2>📋 设置参与者和奖项</h2>
+                
+                <div class="section-group">
+                    <h3>添加参与者</h3>
+                    <div class="input-group">
+                        <input type="text" id="participantInput" placeholder="输入参与者名字（如：妈妈）" />
+                        <button onclick="addParticipant()" class="btn btn-primary">➕ 添加</button>
+                    </div>
+                    <div id="participantList" class="participant-list"></div>
+                </div>
+
+                <div class="section-group">
+                    <h3>添加奖项/任务</h3>
+                    <div class="input-group">
+                        <input type="text" id="prizeInput" placeholder="输入奖项（如：洗碗、拖地、整理房间）" />
+                        <input type="number" id="prizeCount" min="1" max="10" value="1" placeholder="人数" />
+                        <button onclick="addPrize()" class="btn btn-primary">➕ 添加</button>
+                    </div>
+                    <div id="prizeList" class="prize-list"></div>
+                </div>
+            </section>
+
+            <!-- 抽奖面板 -->
+            <section class="panel lottery-panel">
+                <h2>🎰 开始抽奖</h2>
+                
+                <div class="lottery-controls">
+                    <button onclick="startLottery()" class="btn btn-large btn-start" id="startBtn">🎰 开始抽奖</button>
+                    <button onclick="resetLottery()" class="btn btn-secondary">🔄 重置</button>
+                </div>
+
+                <div id="lotteryResult" class="lottery-result hidden">
+                    <h3>🎊 抽奖结果</h3>
+                    <div id="resultContent" class="result-content"></div>
+                </div>
+            </section>
+
+            <!-- 历史记录 -->
+            <section class="panel history-panel">
+                <h2>📝 抽奖历史</h2>
+                <div id="historyList" class="history-list"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
